@@ -12,7 +12,10 @@ const Menu = (props) => {
     }
 
     const renderAllItems = () => {
-        return allFoodItems.map(item => <FoodItem FoodItem={item}/>);
+        return allFoodItems.map(item => {
+            // props.type === 'dinner' ? item.price = String(Number(item.price) + 3) : null;
+            return <FoodItem menu={props.type} selectFoodItem={props.selectFoodItem} FoodItem={item}/>;
+        });
     }
 
     useEffect(() => {
