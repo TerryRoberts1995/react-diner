@@ -3,11 +3,20 @@ html, body {
     margin: 0;
     font-family: 'montserrat';
 }
+
 .app {
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
-    height: 100%vh;
+    width: 100vw;
+    height: 100vh;
 }
+.diner-title {
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Life Savers', cursive;
+}
+
 .all-menus {
     display: flex;
     justify-content: space-evenly;

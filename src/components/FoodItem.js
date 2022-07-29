@@ -5,7 +5,7 @@ const FoodItem = (props) => {
 
     return (
         <div className='foodItem-container' onClick={()=> props.selectFoodItem(props.FoodItem)}>
-            <h3 className='food-display'>{title}: {price}</h3>
+            <h3 className='food-display'>{title}: <span className='price-tag'>${price}</span></h3>
         </div>
     )
 }

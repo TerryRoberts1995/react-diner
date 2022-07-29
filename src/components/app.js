@@ -25,6 +25,7 @@ export default function App() {
 
   return (
     <div className='app'>
+      <h2 className='diner-title'>Bottega Diner</h2>
       <div className='all-menus'>
         <Menu type={'breakfast'} selectFoodItem={selectFoodItem}/>
         <Menu type={'lunch'} selectFoodItem={selectFoodItem}/>
