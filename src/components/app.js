@@ -25,11 +25,13 @@ export default function App() {
 
   return (
     <div className='app'>
-      <Menu type={'breakfast'} selectFoodItem={selectFoodItem}/>
-      <Menu type={'lunch'} selectFoodItem={selectFoodItem}/>
-      {/* <Menu type={'dinner'} selectFoodItem={selectFoodItem}/> */}
+      <div className='all-menus'>
+        <Menu type={'breakfast'} selectFoodItem={selectFoodItem}/>
+        <Menu type={'lunch'} selectFoodItem={selectFoodItem}/>
+        <Menu type={'dinner'} selectFoodItem={selectFoodItem}/>
+      </div>
       
-      <div>{totalPrice.toFixed(2)}</div>
+      <div className='total-price'>Total: {totalPrice.toFixed(2)}</div>
     </div>
   );
 }
