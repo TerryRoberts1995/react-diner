@@ -15,6 +15,7 @@ html, body {
     text-align: center;
     font-size: 70px;
     font-family: 'Life Savers', cursive;
+    margin: 0;
 }
 
 .all-menus {
@@ -24,7 +25,9 @@ html, body {
 }
 
 .total-price {
+    font-size: 35px;
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
 }
 @import './menu.scss';
 @import './foodItem.scss';
