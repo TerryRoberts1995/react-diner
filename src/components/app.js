@@ -6,11 +6,9 @@ export default function App() {
   const [sideOne, setSideOne] = useState({price: 0});
   const [sideTwo, setSideTwo] = useState({price: 0});
   const [totalPrice, setTotalPrice] = useState(0);
-  const [choice, setChoice] = useState({});
+  const [choice, setChoice] = useState('');
   const [comment, setComment] = useState('');
   const waitressComments = [`That is a great choice! I love the ${choice.title}`, `${choice.title} is really good!`, `The ${choice.title} goes great with a drink!`];
-
-
 
   const selectFoodItem = (FoodItem) => {
     if(mainCourse.price === 0) {
@@ -27,8 +25,8 @@ export default function App() {
 
   useEffect(() => {
     setTotalPrice(calculateTotalPrice())
-    choice !== undefined ? setComment(waitressComments[Math.ceil(Math.random() * waitressComments.length)]) : null;
-  }, [mainCourse, sideOne, sideTwo]);
+    choice !== '' ? setComment(waitressComments[Math.ceil(Math.random() * waitressComments.length)]) : null;
+  }, [mainCourse, sideOne, sideTwo, comment]);
 
   return (
     <div className='app'>
@@ -38,9 +36,8 @@ export default function App() {
         <Menu type={'lunch'} selectFoodItem={selectFoodItem}/>
         <Menu type={'dinner'} selectFoodItem={selectFoodItem}/>
       </div>
-      
-      <div className='total-price'>Total: {totalPrice.toFixed(2)}</div>
-      <div className='waitress-comment'>Comment: {comment}</div>
+      <div className='total-price'>Total: <span>{totalPrice.toFixed(2)}</span></div>
+      <div className='waitress-comment'>Waitress Comment: {comment}</div>
     </div>
   );
 }

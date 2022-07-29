@@ -2,6 +2,8 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: 'montserrat';
+    background: #0D3026;
+    color: white;
 }
 
 .app {
@@ -16,6 +18,8 @@ html, body {
     font-size: 70px;
     font-family: 'Life Savers', cursive;
     margin: 0;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .all-menus {
@@ -25,9 +29,20 @@ html, body {
 }
 
 .total-price {
-    font-size: 35px;
+    font-size: 50px;
     text-align: center;
     font-family: 'Quicksand', sans-serif;
+
+    span {
+        color: #E3CD64;
+    }
 }
+
+.waitress-comment {
+    text-align: center;
+    font-family: 'Atma', cursive;
+    font-size: 25px;
+}
+
 @import './menu.scss';
 @import './foodItem.scss';
