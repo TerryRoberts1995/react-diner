@@ -6,9 +6,19 @@
 
   .food-display {
     font-family: "Atma", cursive;
+    transition: 0.2s ease-in-out;
+
     .price-tag {
       color: #a3f7b5;
       text-shadow: 1px 1px 1px black;
     }
+
+    &:hover {
+      color: #edf094;
+      text-shadow: 2px 2px 2px black;
+    }
+  }
+  .clicked {
+    color: red;
   }
 }

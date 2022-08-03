@@ -39,13 +39,13 @@
   width: 15%;
   background: #1a604c;
   border-radius: 10px;
-  box-shadow: 0px 0px 1px 1px #e3cd64;
+  box-shadow: 0px 0px 1px 1px #f3f5b8;
 
   .menu-title {
     font-size: 35px;
     margin-bottom: 15px;
     font-family: "Codystar", cursive;
-    text-shadow: 0 0 0 transparent, 0 0 2px #e3cd64, 0 0 4px #e3cd64,
+    text-shadow: 0 0 0 transparent, 0 0 2px #e3cd64, 0 0 4px #f3f5b8,
       0 0 8px #e3cd64, 0 0 10px #e3cd64;
     animation: lightbulb 3s infinite alternate;
   }
