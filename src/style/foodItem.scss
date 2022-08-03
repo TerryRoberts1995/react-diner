@@ -1,14 +1,14 @@
 .foodItem-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
 
-    .food-display {
-        font-family: 'Atma', cursive;
-        .price-tag {
-            color: #A3F7B5;
-            text-shadow: 1px 1px 1px black;
-        }
+  .food-display {
+    font-family: "Atma", cursive;
+    .price-tag {
+      color: #a3f7b5;
+      text-shadow: 1px 1px 1px black;
     }
+  }
 }

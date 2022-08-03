@@ -1,12 +1,30 @@
 @keyframes animateIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.6) translateY(-8px);
-    }
-    
-    100% {
-      opacity: 1;
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes lightbulb {
+  40% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.8;
+  }
+  43% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.3;
+  }
+  46% {
+    opacity: 1;
+  }
 }
 
 .menu-container {
@@ -19,14 +37,16 @@
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
   width: 15%;
-  background:  #1A604C;
+  background: #1a604c;
   border-radius: 10px;
-  box-shadow: 0px 0px 1px 1px #E3CD64;
-
+  box-shadow: 0px 0px 1px 1px #e3cd64;
 
   .menu-title {
     font-size: 35px;
     margin-bottom: 15px;
-    font-family: 'Codystar', cursive;
+    font-family: "Codystar", cursive;
+    text-shadow: 0 0 0 transparent, 0 0 2px #e3cd64, 0 0 4px #e3cd64,
+      0 0 8px #e3cd64, 0 0 10px #e3cd64;
+    animation: lightbulb 3s infinite alternate;
   }
 }
