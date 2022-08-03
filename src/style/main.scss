@@ -29,16 +29,6 @@ body {
     align-items: center;
   }
 
-  .total-price {
-    font-size: 50px;
-    text-align: center;
-    font-family: "Quicksand", sans-serif;
-
-    span {
-      color: #e3cd64;
-    }
-  }
-
   .waitress-comment {
     text-align: center;
     font-family: "Atma", cursive;
@@ -48,3 +38,4 @@ body {
 
 @import "./menu.scss";
 @import "./foodItem.scss";
+@import "./order.scss";

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Menu from "./Menu";
+import Order from "./Order";
 
 export default function App() {
   const [mainCourse, setMainCourse] = useState({ price: 0 });
@@ -37,6 +38,12 @@ export default function App() {
       : null;
   }, [mainCourse, sideOne, sideTwo, comment]);
 
+  const resetItems = () => {
+    setMainCourse({ price: 0 });
+    setSideOne({ price: 0 });
+    setSideTwo({ price: 0 });
+  };
+
   return (
     <div className="app">
       <h2 className="diner-title">Bottega Diner</h2>
@@ -45,9 +52,13 @@ export default function App() {
         <Menu type={"lunch"} selectFoodItem={selectFoodItem} />
         <Menu type={"dinner"} selectFoodItem={selectFoodItem} />
       </div>
-      <div className="total-price">
-        Total: <span>{totalPrice.toFixed(2)}</span>
-      </div>
+      <Order
+        totalPrice={totalPrice.toFixed(2)}
+        mainCourse={mainCourse}
+        sideOne={sideOne}
+        sideTwo={sideTwo}
+        resetItems={resetItems}
+      />
       <div className="waitress-comment">Waitress Comment: {comment}</div>
     </div>
   );
