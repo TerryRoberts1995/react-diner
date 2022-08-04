@@ -8,11 +8,12 @@ const FoodItem = (props) => {
     <div
       className="foodItem-container"
       onClick={() => {
-        setClicked("clicked");
+        // setClicked("clicked");
+        console.log(props.clicks);
         return props.selectFoodItem(props.FoodItem);
       }}
     >
-      <h3 className={`food-display ${clicked}`}>
+      <h3 className={`food-display`}>
         {title}: <span className="price-tag">${price}</span>
       </h3>
     </div>

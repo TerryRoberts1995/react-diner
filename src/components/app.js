@@ -9,6 +9,7 @@ export default function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [choice, setChoice] = useState("");
   const [comment, setComment] = useState("");
+  const [clicks, setClicks] = useState(0);
   const waitressComments = [
     `That is a great choice! I love the ${choice.title}`,
     `${choice.title} is really good!`,
@@ -23,6 +24,7 @@ export default function App() {
     } else if (sideTwo.price === 0) {
       setSideTwo(FoodItem);
     }
+    setClicks(clicks + 1);
     setChoice(FoodItem);
   };
 
@@ -36,21 +38,26 @@ export default function App() {
           waitressComments[Math.ceil(Math.random() * waitressComments.length)]
         )
       : null;
-  }, [mainCourse, sideOne, sideTwo, comment]);
+  }, [mainCourse, sideOne, sideTwo, comment, clicks]);
 
   const resetItems = () => {
     setMainCourse({ price: 0 });
     setSideOne({ price: 0 });
     setSideTwo({ price: 0 });
+    setClicks(0);
   };
 
   return (
     <div className="app">
       <h2 className="diner-title">Bottega Diner</h2>
       <div className="all-menus">
-        <Menu type={"breakfast"} selectFoodItem={selectFoodItem} />
-        <Menu type={"lunch"} selectFoodItem={selectFoodItem} />
-        <Menu type={"dinner"} selectFoodItem={selectFoodItem} />
+        <Menu
+          type={"breakfast"}
+          selectFoodItem={selectFoodItem}
+          clicked={clicks}
+        />
+        <Menu type={"lunch"} selectFoodItem={selectFoodItem} clicked={clicks} />
+        <Menu type={"dinner"} selectFoodItem={selectFoodItem} clicks={clicks} />
       </div>
       <Order
         totalPrice={totalPrice.toFixed(2)}
