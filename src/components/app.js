@@ -7,14 +7,19 @@ export default function App() {
   const [sideOne, setSideOne] = useState({ price: 0 });
   const [sideTwo, setSideTwo] = useState({ price: 0 });
   const [totalPrice, setTotalPrice] = useState(0);
-  const [choice, setChoice] = useState("");
   const [comment, setComment] = useState("");
-  const [clicks, setClicks] = useState(0);
-  const waitressComments = [
-    `That is a great choice! I love the ${choice.title}`,
-    `${choice.title} is really good!`,
-    `The ${choice.title} goes great with a drink!`,
-  ];
+
+  const generateComment = (title) => {
+    const waitressComments = [
+      `That is a great choice! I love the ${title}`,
+      `${title} is really good!`,
+      `The ${title} goes great with a drink!`,
+    ];
+
+    setComment(
+      waitressComments[Math.floor(Math.random() * waitressComments.length)]
+    );
+  };
 
   const selectFoodItem = (FoodItem) => {
     if (mainCourse.price === 0) {
@@ -24,8 +29,6 @@ export default function App() {
     } else if (sideTwo.price === 0) {
       setSideTwo(FoodItem);
     }
-    setClicks(clicks + 1);
-    setChoice(FoodItem);
   };
 
   const calculateTotalPrice = () =>
@@ -33,18 +36,13 @@ export default function App() {
 
   useEffect(() => {
     setTotalPrice(calculateTotalPrice());
-    choice !== ""
-      ? setComment(
-          waitressComments[Math.ceil(Math.random() * waitressComments.length)]
-        )
-      : null;
-  }, [mainCourse, sideOne, sideTwo, comment, clicks]);
+  }, [mainCourse, sideOne, sideTwo, comment]);
 
   const resetItems = () => {
     setMainCourse({ price: 0 });
     setSideOne({ price: 0 });
     setSideTwo({ price: 0 });
-    setClicks(0);
+    setComment("");
   };
 
   return (
@@ -54,10 +52,18 @@ export default function App() {
         <Menu
           type={"breakfast"}
           selectFoodItem={selectFoodItem}
-          clicked={clicks}
+          generateComment={generateComment}
         />
-        <Menu type={"lunch"} selectFoodItem={selectFoodItem} clicked={clicks} />
-        <Menu type={"dinner"} selectFoodItem={selectFoodItem} clicks={clicks} />
+        <Menu
+          type={"lunch"}
+          selectFoodItem={selectFoodItem}
+          generateComment={generateComment}
+        />
+        <Menu
+          type={"dinner"}
+          selectFoodItem={selectFoodItem}
+          generateComment={generateComment}
+        />
       </div>
       <Order
         totalPrice={totalPrice.toFixed(2)}
